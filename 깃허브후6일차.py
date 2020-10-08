@@ -67,6 +67,6 @@ def withdraw_night(balance, money): #밤에 출금
 balance = 0 #잔액
 balance = deposit(balance,1000)
 # balance = withdraw(balance,300)
-commission, balance = withdraw_night(balance, 700)
+commission, balance = withdraw_night(balance, 500)
 print("수수료 {0} 원이며, 잔액은 {1} 원입니다.".format(commission,balance)) 
 #윗줄에서 튜플방식으로 balance값을 withdraw한 값이며 300 출금한다고 정의했기에 여기서 balance - money- commission라고 할 필요가 없음
