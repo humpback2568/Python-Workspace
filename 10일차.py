@@ -33,14 +33,29 @@
 # pokemon2.leek = True
 # if pokemon2.leek == True:
 #     print("{0}는 현재 '대파'를 소유하고 있지 않습니다.".format(pokemon2.name))
+
+# mew =AttackUnit("뮤",100,100)
+# mew.attack("블루")
+# mew = MetamorAttackunit(mew.name,100,100,"가재장군")
+# mew.transform(mew.name,"")
+# mew.underattack(40)
+# mew.underattack(40)
+# mew.underattack(40)
+
 class Unit: #부모 클래스 다중상속이란 부모가 여러명()
-    def __init__(self,name,hp): #생성자
+    def __init__(self,name,hp,speed): #생성자
         self.name = name
         self.hp = hp
-        
+        self.speed = speed
+
+    def move(self,enamy):
+        self.enamy = enamy
+        print("[선공 포켓몬]")
+        print("{0} : {1} 상대로 선공을 가져갑니다. [속도 {2}]"\
+            .format(self.name,enamy,self.speed))
 class AttackUnit(Unit): #자식 클래스
-    def __init__(self,name,hp,damage): #생성자
-        Unit.__init__(self,name,hp)
+    def __init__(self,name,hp,speed,damage): #생성자
+        Unit.__init__(self,name,hp,speed)
         self.damage = damage
         
     def attack(self,locaton):
@@ -63,16 +78,12 @@ class Metamor:
 
 #변신하면서 공격가능한 포켓몬 = 뮤
 class MetamorAttackunit(AttackUnit,Metamor):
-    def __init__(self, name, hp, damage,trans_unit):
-        AttackUnit.__init__(self,name,hp,damage)
+    def __init__(self, name, hp, damage,speed,trans_unit):
+        AttackUnit.__init__(self,name,hp,speed,damage)
         Metamor.__init__(self,trans_unit)
 
-mew =AttackUnit("뮤",100,100)
-mew.attack("블루")
-mew = MetamorAttackunit(mew.name,100,100,"가재장군")
+electrode =AttackUnit("붐볼",60,150,50)
+mew =MetamorAttackunit("뮤",100,100,100,"이브이")
+
+electrode.move("창파나이트")
 mew.transform(mew.name,"")
-mew.underattack(40)
-mew.underattack(40)
-mew.underattack(40)
-
-
