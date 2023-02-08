@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multiplication Table</title>
+</head>
+<body>
+    <table>
+        {% for row in rows %}
+            <tr>
+                {% for number in row %}
+                    <td>{{ number }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('index') }}">Back</a>
+</body>
+</html>
